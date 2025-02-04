@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Digital SMP IT AM</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,6 +18,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         input {
             display: block;
@@ -36,16 +37,20 @@
         button:hover {
             background-color: #218838;
         }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <h2>Login</h2>
+        <h2>Login Digital SMP IT AM</h2>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
-        <p id="message" style="color: red;"></p>
+        <p id="message" class="error"></p>
     </div>
 
     <script>
@@ -53,12 +58,16 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
+            // Akun yang diperbolehkan masuk
             const validUser = "admin";
             const validPass = "12345";
 
             if (username === validUser && password === validPass) {
+                // Simpan sesi login di localStorage
                 localStorage.setItem("isLoggedIn", "true");
-                window.location.href = "https://sites.google.com/view/digitalsmpitam/dashboard"; // Pindah ke dashboard
+
+                // Redirect ke Google Sites Dashboard
+                window.location.href = "https://sites.google.com/view/digitalsmpitam/dashboard";
             } else {
                 document.getElementById("message").textContent = "Username atau Password salah!";
             }
